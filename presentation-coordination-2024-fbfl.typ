@@ -21,11 +21,22 @@
   width: 100%,
 )
 
+
+#let author = box[
+  #table(inset: 0.5em, stroke: none, columns: (1fr, 4fr),  align: (left, left),
+    [*Davide Domini*], [davide.domini\@unibo.it],
+    [Gianluca Aguzzi], [gianluca.aguzzi\@unibo.it],
+    [Lukas Esterle], [lukas.esterle\@ece.au.dk],
+    [Mirko Viroli], [mirko.viroli\@unibo.it]
+  )
+]
+
+
 #title-slide(
-  title: "Slide Title",
-  subtitle: "Subtitle",
-  author: "Author Name",
-  date: datetime.today().display("[day] [month repr:long] [year]"),
+  title: "Field-based Coordination for Federated Learning",
+  subtitle: "Talk @ COORDINATION 2024",
+  author: author, //"Davide Domini, Gianluca Aguzzi, Lukas Esterle, Mirko Viroli",
+  //date: datetime.today().display("[day] [month repr:long] [year]"),
 )
 
 #new-section-slide("Slide section 1")
