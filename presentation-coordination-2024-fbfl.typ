@@ -38,46 +38,99 @@
   //date: datetime.today().display("[day] [month repr:long] [year]"),
 )
 
-#new-section-slide("Context: computation everywhere")
+#new-section-slide("Context")
 
-#slide(title: "Scenario")[
+#slide(title: "Scenario: computation everywhere")[
   // TODO - maybe I can find a better image :)
     #figure(
     image("imgs/pervasive.png", width: 73%)
   )
 ]
 
-#slide(title: "Code slide")[
-  ```kotlin
-  fun main() {
-      println("Hello, world!")
-
-      for (i in 0..9) {
-          println(i)
-      }
-      println("Goodbye, world!")
-  }
-  ```
+#slide(title: "Main characteristics")[
+  - a lot of data
+  - distributed data
+  - privacy
+  - cooperation
 ]
 
-#slide[
-  = This is a title
-
-  #lorem(24)
-
-  == This is a subtitle
-
-  #lorem(34)
+#slide(title: "Traditional ML training loop")[
+  #figure(
+    image("imgs/classic-ml.png", width: 48%)
+  )
 ]
 
-#slide[
-
-  == Icon in a title #fa-java()
-
-  #fa-icon("github", fa-set: "Brands") -- Github icon
-
-  #fa-icon("github", fa-set: "Brands", fill: blue) -- Github icon blue fill
+#slide(title:"A real world use case: Google Virtual Keyboard")[
+    #table(inset: 1em, stroke: none, columns: (1fr, 1fr), align: (left, left),
+    [
+      - *Task*: Next word prediction // TODO - add cit
+      - *Problem*: Users' privacy
+      - *Solution*: Share weights not data
+    ],
+    [
+      #figure(
+        image("imgs/keyboard.svg", width: 70%)
+      )
+    ]  
+  )
 ]
+
+#slide(title: "What Federated Learning is?")[
+ #figure(
+    image("imgs/federated-learning-schema.svg", width: 50%)
+  )
+]
+
+#let check = box[ #figure(
+    image("imgs/checkmark.svg", width: 6%)
+  )]
+
+#let cross = box[ #figure(
+    image("imgs/crossmark.svg", width: 6%)
+  )]
+
+#slide(title: "Pros & Cons")[
+
+  #table(inset: 1em, stroke: none, columns: (1fr, 1fr), align: (left, left),
+    [
+      #check Reduces privacy concerns
+
+      #check Transfers less data to the server
+    ],
+    [
+      #cross Need for a central trusted entity
+
+      #cross Single point of failure
+
+      #cross Data heterogeneity 
+    ]  
+  )
+
+]
+
+#slide(title: "Towards peer-to-peer Federated Learning")[
+  #figure(
+    image("imgs/federated-learning-schema-p2p.svg", width: 50%)
+  )
+]
+
+#slide(title: "Data heterogeneity")[
+  - In real life, data are often #underline[non-independently and identically distributed]
+  - Example: differences in UK-US slang
+  - A possible categorization:
+    - Feature skew
+    - Label skew
+    - Quantity skew
+]
+
+#slide(title: "How can we address data heterogeneity?")[
+  - Adding a regularization term to classic FL algorithms @scaffold @fedprox
+  - #underline[*Personalized*] Federated Learning
+    - #underline[*Cluster level*] @hcfl @ecfl @tapfl
+    - Client level @atldd @dasbct @dalba
+    - Graph level @fedu @pflwg @9832778
+]
+
 
 #slide[
   #bibliography("bibliography.bib")
