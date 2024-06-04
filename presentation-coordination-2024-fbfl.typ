@@ -5,7 +5,6 @@
 
 #show: metropolis-theme.with(
   aspect-ratio: "16-9",
-  footer: [Optional Footnote]
 )
 
 #set text(font: "Inter", weight: "light", size: 20pt)
@@ -42,6 +41,7 @@
 #new-section-slide("Context: computation everywhere")
 
 #slide(title: "Scenario")[
+  // TODO - maybe I can find a better image :)
     #figure(
     image("imgs/pervasive.png", width: 73%)
   )
