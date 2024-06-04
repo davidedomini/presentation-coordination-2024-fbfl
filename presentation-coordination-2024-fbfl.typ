@@ -39,16 +39,12 @@
   //date: datetime.today().display("[day] [month repr:long] [year]"),
 )
 
-#new-section-slide("Slide section 1")
+#new-section-slide("Context: computation everywhere")
 
-#slide(title: "Slide")[
-  *Bold* and _italic_ text.
-  
-  This is a citiation @nicolas_farabegoli_2024_10535841.
-
-  #alert[
-    This is an alert.
-  ]
+#slide(title: "Scenario")[
+    #figure(
+    image("imgs/pervasive.png", width: 73%)
+  )
 ]
 
 #slide(title: "Code slide")[
