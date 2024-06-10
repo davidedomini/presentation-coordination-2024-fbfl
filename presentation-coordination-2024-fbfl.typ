@@ -43,15 +43,23 @@
 #slide(title: "Scenario: computation everywhere")[
   // TODO - maybe I can find a better image :)
     #figure(
-    image("imgs/pervasive.png", width: 73%)
+    image("imgs/pc2.jpg", width: 78%)
   )
 ]
 
+#let arrow = box[ #figure(
+    image("imgs/arrow.svg", width: 2%)
+  )]
+
 #slide(title: "Main characteristics")[
-  - a lot of data
-  - distributed data
-  - privacy
-  - cooperation
+
+  #arrow Huge amount of data
+
+  #arrow Naturally distributed data
+
+  #arrow Privacy concerns
+
+  #arrow Cooperation to solve collective tasks
 ]
 
 #slide(title: "Traditional ML training loop")[
