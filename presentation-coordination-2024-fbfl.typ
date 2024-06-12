@@ -149,6 +149,83 @@
 
 #new-section-slide("Field based coordination for FL")
 
+#slide(title: "Full peer-to-peer learning")[
+  ```scala
+  rep(init() )(model => { // Local model initialization
+    // 1. Local training
+    model.evolve(localEpochs)
+    // 2. Model sharing
+    val info = foldhood(Set(model))(_ ++ _)(nbr(model))
+    // 3. Model aggregation
+    aggregation(info)
+  })
+  ```  
+]
+
+
+#slide(title:"SCR Pattern for Federated Learning")[
+
+  // #figure(
+  //   image("imgs/FL-SCR.svg", width: 110%)
+  // )
+ SCR image...
+
+]
+
+
+#slide(title: "Learning in zones")[
+  ```scala
+  val aggregators = S(area, nbrRange) // Dynamic aggregator selection
+  rep(init())(model => { // Local model initialization
+    model.evolve() // 1. Local training step
+    val pot = gradient(aggregators) // Potential field for model sharing
+    // 2. model sharing
+    val info = C(pot, _ ++ _, Set(model), Set.empty)
+    val aggregateModel = aggregation(info) // 3. Aggregation
+    sharedModel = broadcast(aggregators, aggregateModel) // 4. Gossiping
+    mux(impulsesEvery(epochs)){ combineLocal(sharedModel, model) } { model }
+  })
+  ```
+]
+
+#let adv = box[ #figure(
+    image("imgs/checkmark.svg", width: 2%)
+  )]
+
+#slide(title: "Advantages")[
+ 
+ #arrow Dynamic number of clusters
+
+ #arrow Decentralized clustering
+
+ #arrow Supports both peer-to-peer interactions and the formation of specialized zones
+
+ #arrow Dynamic model aggregation without a centralized authority
+
+ #arrow Exploits spatial distribution of the devices
+
+]
+
+
+#slide(title: "Experiment: Air Quality Prediction ")[
+
+  #table(inset: 1em, stroke: none, columns: (1fr, 1fr), align: (left, left),
+    [
+      #figure(
+        image("imgs/concentration.png", width: 120%)
+      )
+
+    ],
+    [
+      #figure(
+        image("imgs/pm10-stations-deploy-alchemist.png", width: 95%)
+      )
+
+    ]  
+  )
+
+]
+
 
 #slide[
   #bibliography("bibliography.bib")
