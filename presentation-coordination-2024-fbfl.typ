@@ -62,18 +62,12 @@
   #arrow Cooperation to solve collective tasks
 ]
 
-#slide(title: "Traditional ML training loop")[
-  #figure(
-    image("imgs/classic-ml.png", width: 48%)
-  )
-]
-
 #slide(title:"A real world use case: Google Virtual Keyboard")[
     #table(inset: 1em, stroke: none, columns: (1fr, 1fr), align: (left, left),
     [
       - *Task*: Next word prediction // TODO - add cit
       - *Problem*: Users' privacy
-      - *Solution*: Share weights not data
+      // - *Solution*: Share weights not data
     ],
     [
       #figure(
@@ -83,9 +77,21 @@
   )
 ]
 
+#slide(title: "Traditional ML training loop")[
+  #figure(
+    image("imgs/classic-ml.png", width: 48%)
+  )
+]
+
 #slide(title: "What Federated Learning is?")[
+ #align(center)[
+  #alert[
+    _*How can we train a model without collecting data?*_
+  ]
+ ]
+ 
  #figure(
-    image("imgs/federated-learning-schema.svg", width: 50%)
+    image("imgs/federated-learning-schema.svg", width: 40%)
   )
 ]
 
@@ -116,11 +122,6 @@
 
 ]
 
-#slide(title: "Towards peer-to-peer Federated Learning")[
-  #figure(
-    image("imgs/federated-learning-schema-p2p.svg", width: 50%)
-  )
-]
 
 #slide(title: "Data heterogeneity")[
   - In real life, data are often #underline[non-independently and identically distributed]
@@ -131,6 +132,13 @@
     - Quantity skew
 ]
 
+
+#slide(title: "Towards peer-to-peer Federated Learning")[
+  #figure(
+    image("imgs/federated-learning-schema-p2p.svg", width: 50%)
+  )
+]
+
 #slide(title: "How can we address data heterogeneity?")[
   - Adding a regularization term to classic FL algorithms @scaffold @fedprox
   - #underline[*Personalized*] Federated Learning
@@ -138,6 +146,8 @@
     - Client level @atldd @dasbct @dalba
     - Graph level @fedu @pflwg @9832778
 ]
+
+#new-section-slide("Field based coordination for FL")
 
 
 #slide[
