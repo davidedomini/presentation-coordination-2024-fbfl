@@ -165,10 +165,10 @@
 
 #slide(title:"SCR Pattern for Federated Learning")[
 
-  // #figure(
-  //   image("imgs/FL-SCR.svg", width: 110%)
-  // )
- SCR image...
+  #figure(
+     image("imgs/scr.svg", width: 100%)  
+  )
+
 
 ]
 
