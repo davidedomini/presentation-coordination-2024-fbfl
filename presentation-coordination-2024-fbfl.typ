@@ -149,6 +149,24 @@
 
 #new-section-slide("Field based coordination for FL")
 
+
+#slide(title:"Field-based coordination operators")[
+
+  ```scala
+  rep(0)(x => x + 1) // Repetition over time
+  fooldhood(0)(_ + _)(nbr(1)) // Iteration over neighbors
+  
+  ```
+
+  ```scala
+  C[V](source: Boolean, accumulator: V => V, localValue: V, null: V)
+  G[V](source: Boolean, value: V, accumulator: V => V)
+  S(radius: Double): Boolean
+  ```
+
+]
+
+
 #slide(title: "Full peer-to-peer learning")[
   ```scala
   rep(init() )(model => { // Local model initialization
