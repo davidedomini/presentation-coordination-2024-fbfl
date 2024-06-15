@@ -226,6 +226,14 @@
 
 ]
 
+#slide(title:"What's next?")[
+  #arrow More exploration with non-iid data
+
+  #arrow Space fluidity for self-adaptive clustering
+
+  #arrow Sparse neural networks for low resource settings
+]
+
 
 #slide[
   #bibliography("bibliography.bib")
