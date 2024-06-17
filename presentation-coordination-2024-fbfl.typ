@@ -23,7 +23,7 @@
 
 #let author = box[
   #table(inset: 0.5em, stroke: none, columns: (1fr, 4fr),  align: (left, left),
-    [*Davide Domini*], [davide.domini\@unibo.it],
+    [#alert[*Davide Domini*]], [davide.domini\@unibo.it],
     [Gianluca Aguzzi], [gianluca.aguzzi\@unibo.it],
     [Lukas Esterle], [lukas.esterle\@ece.au.dk],
     [Mirko Viroli], [mirko.viroli\@unibo.it]
@@ -77,7 +77,7 @@
   )
 ]
 
-#slide(title: "Traditional ML training loop")[
+#slide(title: "Traditional DL training loop")[
   #figure(
     image("imgs/classic-ml.png", width: 48%)
   )
@@ -169,7 +169,7 @@
 
 #slide(title: "Full peer-to-peer learning")[
   ```scala
-  rep(init() )(model => { // Local model initialization
+  rep(init())(model => { // Local model initialization
     // 1. Local training
     model.evolve(localEpochs)
     // 2. Model sharing
@@ -181,7 +181,7 @@
 ]
 
 
-#slide(title:"SCR Pattern for Federated Learning")[
+#slide(title:"SCR for Federated Learning")[
 
   #figure(
      image("imgs/scr.svg", width: 100%)  
@@ -229,18 +229,28 @@
 
   #table(inset: 1em, stroke: none, columns: (1fr, 1fr), align: (left, left),
     [
-      #figure(
-        image("imgs/concentration.png", width: 120%)
-      )
-
+      - *Task*: PM10 prediction
+      - *Problems*:
+        - Different distributions in space
+        - A lot of distributed data
     ],
     [
+
       #figure(
-        image("imgs/pm10-stations-deploy-alchemist.png", width: 95%)
+        image("imgs/concentration.png", width: 48%)
+      )
+
+      #figure(
+        image("imgs/pm10-stations-deploy-alchemist.png", width: 46%)
       )
 
     ]  
   )
+
+]
+
+
+#slide(title: "Results")[
 
 ]
 
