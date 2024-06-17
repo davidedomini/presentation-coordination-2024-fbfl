@@ -149,18 +149,25 @@
 
 #new-section-slide("Field based coordination for FL")
 
+ // rep(0)(x => x + 1) 
+ // fooldhood(0)(_ + _)(nbr(1))
 
 #slide(title:"Field-based coordination operators")[
 
   ```scala
-  rep(0)(x => x + 1) // Repetition over time
-  fooldhood(0)(_ + _)(nbr(1)) // Iteration over neighbors
+  // Repetition over time
+  rep[V](init: V)(f: (V) => V) 
+  // Iteration over neighbors
+  fooldhood[V](init: V)(accumulator: (V,V) => V)(nbrExpression: V) 
   
   ```
 
   ```scala
+  // Collect cast
   C[V](source: Boolean, accumulator: V => V, localValue: V, null: V)
+  // Gradient cast
   G[V](source: Boolean, value: V, accumulator: V => V)
+  // Leader election
   S(radius: Double): Boolean
   ```
 
@@ -224,24 +231,76 @@
 
 ]
 
+#new-section-slide("Experimental Evaluation")
+
+#slide(title:"Experiments")[
+  - #underline[*Field-Based P2P vs Centralized Federated Learning*]
+    - Task: Classification
+    - Dataset: MNIST and Fashion MNIST
+
+  - #underline[*Field-Based Specialized Federated Learning*]
+    - Task: Time-series prediction
+    - Dataset: PM10 samples in Europe
+]
+
+#slide(title: "Results: MNIST Classification ")[
+
+  #table(inset: 1em, stroke: none, columns: (1fr, 1fr, 1fr), align: (left, left, left),
+    [
+      #figure(
+        image("imgs/avg_train_loss_mnist.png", width: 100%)
+      )
+    ],
+        [
+      #figure(
+        image("imgs/avg_validation_loss_mnist.png", width: 100%)
+      )
+    ],
+        [
+      #figure(
+        image("imgs/avg_validation_accuracy_mnist.png", width: 100%)
+      )
+    ]
+  )
+]
+
+#slide(title: "Results: Fashion MNIST Classification ")[
+
+  #table(inset: 1em, stroke: none, columns: (1fr, 1fr, 1fr), align: (left, left, left),
+    [
+      #figure(
+        image("imgs/avg_train_loss_fashion.png", width: 100%)
+      )
+    ],
+        [
+      #figure(
+        image("imgs/avg_validation_loss_fashion.png", width: 100%)
+      )
+    ],
+        [
+      #figure(
+        image("imgs/avg_validation_accuracy_fashion.png", width: 100%)
+      )
+    ]
+  )
+]
+
+
 
 #slide(title: "Experiment: Air Quality Prediction ")[
 
   #table(inset: 1em, stroke: none, columns: (1fr, 1fr), align: (left, left),
     [
-      - *Task*: PM10 prediction
-      - *Problems*:
-        - Different distributions in space
-        - A lot of distributed data
+      #figure(
+        image("imgs/concentration.png", width: 120%)
+      )
+
     ],
     [
 
-      #figure(
-        image("imgs/concentration.png", width: 48%)
-      )
 
       #figure(
-        image("imgs/pm10-stations-deploy-alchemist.png", width: 46%)
+        image("imgs/pm10-stations-deploy-alchemist.png", width: 100%)
       )
 
     ]  
@@ -250,9 +309,26 @@
 ]
 
 
-#slide(title: "Results")[
+#slide(title: "Results: Air Quality Prediction")[
+#table(inset: 1em, stroke: none, columns: (1fr, 1fr), align: (left, left),
+    [
+      #figure(
+        image("imgs/trainvalpm10.png", width: 100%)
+      )
 
+    ],
+    [
+
+
+      #figure(
+        image("imgs/mse-pm10.png", width: 100%)
+      )
+
+    ]  
+  )
 ]
+
+#new-section-slide("Future Work")
 
 #slide(title:"What's next?")[
   #arrow More exploration with non-iid data
