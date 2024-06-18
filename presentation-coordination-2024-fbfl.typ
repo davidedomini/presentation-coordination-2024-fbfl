@@ -23,11 +23,12 @@
 
 #let author = box[
   #table(inset: 0.5em, stroke: none, columns: (1fr, 4fr),  align: (left, left),
-    [#alert[*Davide Domini*]], [University of Bologna],
-    [Gianluca Aguzzi], [University of Bologna],
-    [Lukas Esterle], [University of Aarhus],
-    [Mirko Viroli], [University of Bologna]
+    [#alert[*Davide Domini*]], [davide.domini\@unibo.it],
+    [Gianluca Aguzzi], [gianluca.aguzzi\@unibo.it],
+    [Lukas Esterle], [lukas.esterle\@ece.au.dk],
+    [Mirko Viroli], [mirko.viroli\@unibo.it]
   )
+  #pad(x:0.5em, "University of Bologna")
 ]
 
 
