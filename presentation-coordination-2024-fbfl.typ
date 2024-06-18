@@ -28,7 +28,8 @@
     [Lukas Esterle], [lukas.esterle\@ece.au.dk],
     [Mirko Viroli], [mirko.viroli\@unibo.it]
   )
-  #pad(x:0.5em, "University of Bologna")
+  #figure(image("imgs/DIP INFORMATICA-SCIENZA E INGEGNERIA_DISI_EN.svg", width:45%))
+  //#pad(x:0.5em, "University of Bologna")
 ]
 
 
