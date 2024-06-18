@@ -23,10 +23,10 @@
 
 #let author = box[
   #table(inset: 0.5em, stroke: none, columns: (1fr, 4fr),  align: (left, left),
-    [#alert[*Davide Domini*]], [davide.domini\@unibo.it],
-    [Gianluca Aguzzi], [gianluca.aguzzi\@unibo.it],
-    [Lukas Esterle], [lukas.esterle\@ece.au.dk],
-    [Mirko Viroli], [mirko.viroli\@unibo.it]
+    [#alert[*Davide Domini*]], [University of Bologna],
+    [Gianluca Aguzzi], [University of Bologna],
+    [Lukas Esterle], [University of Aarhus],
+    [Mirko Viroli], [University of Bologna]
   )
 ]
 
@@ -38,29 +38,14 @@
   //date: datetime.today().display("[day] [month repr:long] [year]"),
 )
 
-#new-section-slide("Context")
+#new-section-slide("Federated Learning Background")
 
-#slide(title: "Scenario: computation everywhere")[
-  // TODO - maybe I can find a better image :)
-    #figure(
-    image("imgs/pc2.jpg", width: 78%)
-  )
-]
-
-#let arrow = box[ #figure(
-    image("imgs/arrow.svg", width: 2%)
-  )]
-
-#slide(title: "Main characteristics")[
-
-  #arrow Huge amount of data
-
-  #arrow Naturally distributed data
-
-  #arrow Privacy concerns
-
-  #arrow Cooperation to solve collective tasks
-]
+// #slide(title: "Scenario: computation everywhere")[
+//   // TODO - maybe I can find a better image :)
+//     #figure(
+//     image("imgs/pc2.jpg", width: 78%)
+//   )
+// ]
 
 #slide(title:"A real world use case: Google Virtual Keyboard")[
     #table(inset: 1em, stroke: none, columns: (1fr, 1fr), align: (left, left),
@@ -75,6 +60,21 @@
       )
     ]  
   )
+] 
+
+#let arrow = box[ #figure(
+    image("imgs/arrow.svg", width: 2%)
+  )]
+
+#slide(title: "Main characteristics")[
+
+  #arrow Huge amount of data
+
+  #arrow Naturally distributed data
+
+  #arrow Privacy concerns
+
+  #arrow Cooperation to solve collective tasks
 ]
 
 #slide(title: "Traditional DL training loop")[
@@ -139,7 +139,7 @@
   )
 ]
 
-#slide(title: "How can we address data heterogeneity?")[
+#slide(title: "How can data heterogeneity be addressed?")[
   - Adding a regularization term to classic FL algorithms @scaffold @fedprox
   - #underline[*Personalized*] Federated Learning
     - #underline[*Cluster level*] @hcfl @ecfl @tapfl
@@ -148,6 +148,29 @@
 ]
 
 #new-section-slide("Field based coordination for FL")
+
+
+#slide(title:"Field-Based Coordination - one slide")[
+  #figure(
+    image("imgs/ac-one-slide.png", width: 88%)
+  )
+]
+
+#slide(title:"Why field-based coordination?")[
+
+ #arrow Failure tolerance
+
+ #arrow Decentralized clustering
+
+ #arrow Dynamic number of clusters
+
+ #arrow Exploits spatial distribution of the devices
+
+ #arrow Supports both peer-to-peer and specialization
+
+ #arrow Dynamic model aggregation without a centralized authority
+
+]
 
  // rep(0)(x => x + 1) 
  // fooldhood(0)(_ + _)(nbr(1))
@@ -171,6 +194,7 @@
   S(radius: Double): Boolean
   ```
 
+
 ]
 
 
@@ -188,7 +212,7 @@
 ]
 
 
-#slide(title:"SCR for Federated Learning")[
+#slide(title:"Self-organising Coordination Regions for FL")[
 
   #figure(
      image("imgs/scr.svg", width: 100%)  
@@ -217,19 +241,11 @@
     image("imgs/checkmark.svg", width: 2%)
   )]
 
-#slide(title: "Advantages")[
+// #slide(title: "Advantages")[
  
- #arrow Dynamic number of clusters
 
- #arrow Decentralized clustering
 
- #arrow Supports both peer-to-peer interactions and the formation of specialized zones
-
- #arrow Dynamic model aggregation without a centralized authority
-
- #arrow Exploits spatial distribution of the devices
-
-]
+// ]
 
 #new-section-slide("Experimental Evaluation")
 
@@ -237,10 +253,14 @@
   - #underline[*Field-Based P2P vs Centralized Federated Learning*]
     - Task: Classification
     - Dataset: MNIST and Fashion MNIST
+    - Number of devices: 8
+    - Model: LeNet CNN
 
   - #underline[*Field-Based Specialized Federated Learning*]
     - Task: Time-series prediction
     - Dataset: PM10 samples in Europe
+    - Number of devices: 250
+    - Model: RNN
 ]
 
 #slide(title: "Results: MNIST Classification ")[
